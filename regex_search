@@ -48,7 +48,7 @@ if __name__ == '__main__':
     else:
         regex_group = args.group
 
-    if ',' not in regex_group:
+    if ',' not in str(regex_group):
         re_input_regex = re.compile(r'{}'.format(args.regex))
         return_list = [print(match.group(int(regex_group))) 
                        for line in list_of_config 
@@ -56,7 +56,7 @@ if __name__ == '__main__':
                                if match]
     
     # if multiple groups selected
-    if ',' in regex_group:
+    if ',' in str(regex_group):
         regex_group = regex_group.split(',')
         return_dict = {}
         for group in regex_group:
